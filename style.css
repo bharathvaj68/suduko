@@ -3,8 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    
 }
 
 
@@ -28,7 +26,7 @@ h2{
     margin-bottom: 0 !important;
 }
 .suduko {
-    text-align: start;
+
     color: #333;
     padding: 10px 20px;
 }
