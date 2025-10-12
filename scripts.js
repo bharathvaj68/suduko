@@ -1,7 +1,7 @@
-let diff = document.getElementById("diff-button");
+let diff = document.getElementById("diff");
 
 diff.addEventListener("click", () => {
-    let diffList = document.querySelector(".diff-list");
+    let diffList = document.getElementById(".diff-list");
     diffList.classList.toggle("show");
     diff.classList.toggle("active");
     console.log("clicked");

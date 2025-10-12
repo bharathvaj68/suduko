@@ -7,16 +7,18 @@
 
 
 :root {
+
     --primary: #e8e7e7 !important;
     --secondary: #818181 !important;
     --tertiary: #B9B9B9 !important;
     --fourth: #413F3F !important;  
 }
 
+.container-fluid {
+    width: 90% !important;
+}
 
 header {
-    width: 80%;
-    margin: 10px auto;
     border: 100% solid var(--primary);
     border-radius: 10px;
     background-color: #e8e7e7;
@@ -24,16 +26,19 @@ header {
 
 h2{
     margin-bottom: 0 !important;
+    font-size: 1.5rem !important;
+    line-height: normal !important;
+    font-weight: bold !important;
 }
-.suduko {
 
+.suduko-text {
     color: #333;
     padding: 10px 20px;
 }
 
 .diff {
     color: #333;
-    padding: 10px 20px;
+    padding: 10px 20px ;
 }
 
 .submit {
@@ -42,5 +47,112 @@ h2{
 
 .user{
     margin: 5px auto;
-    width: 20%;
+    width: 50px;
+    position: sticky;
+}
+
+.btn {
+    background-color: var(--secondary) !important;
+    color: #FFFFFF;
+    border: 0%;
+}
+
+
+#suduko {
+    height: 450px;
+    width: 450px;
+
+    background-color: aqua;
+}
+
+
+#digits {
+    width: 450px;
+    height: 45px;
+    background-color: aquamarine;
+}
+
+#diff:hover {
+    background-color: var(--tertiary) !important;
+    border: var(--fourth) !important;
+}
+
+.diff-list {
+    display: none;
+}
+
+.diff-list .show:active {
+    display: block;
+}
+
+#submit:hover {
+    background-color: var(--tertiary) !important;
+    border: var(--fourth) !important;
+}
+
+@media (max-width: 425px) {
+    #suduko {
+        height: 300px;
+        width: 300px;
+    }
+
+    .suduko-text {
+        padding: 10px 10px;
+    }
+
+    #digits {
+        width: 300px;
+    }
+
+    .btn {
+        padding: 5px 10px !important;
+    }
+
+    .diff {
+        padding: 10px;
+    }
+
+    #diff {
+        padding: 0.5rem 1rem !important;
+    }
+
+    h2{
+        font-size: 1 rem !important;
+    }
+
+    .user {
+        width: 50px;
+    }
+}
+
+@media (min-width:425px) and (max-width: 480px) {
+    #suduko {
+        width: 360px;
+        height: 360px;
+    }
+
+    #digits {
+        width: 360px;
+    }
+
+    .btn {
+        padding: 3px 2px !important;
+    }
+    
+    .diff {
+        padding: 10px;
+    }
+
+    #diff {
+        padding: 0.5rem 2rem !important;
+    }
+
+    h2{
+        font-size: 25px !important;
+    }
+
+    .user {
+        width: 50px;
+        margin: 7px;
+    }
 }
