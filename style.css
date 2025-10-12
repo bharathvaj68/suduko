@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    
+}
+
+
+:root {
+    --primary: #e8e7e7 !important;
+    --secondary: #818181 !important;
+    --tertiary: #B9B9B9 !important;
+    --fourth: #413F3F !important;  
+}
+
+
+header {
+    width: 80%;
+    margin: 10px auto;
+    border: 100% solid var(--primary);
+    border-radius: 10px;
+    background-color: #e8e7e7;
+}
+
+h2{
+    margin-bottom: 0 !important;
+}
+.suduko {
+    text-align: start;
+    color: #333;
+    padding: 10px 20px;
+}
+
+.diff {
+    color: #333;
+    padding: 10px 20px;
+}
+
+.submit {
+    padding: 10px 20px;
+}
+
+.user{
+    margin: 5px auto;
+    width: 20%;
+}
