@@ -164,7 +164,7 @@ h2{
     height: 37.5px;
     border: 1px solid lightgray;
     padding: 0 !important;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -194,7 +194,7 @@ h2{
     justify-content: center !important;
     align-items: center;
     vertical-align: middle !important;
-    font-size: 20px;
+    font-size: 28px;
     color: black;
     font-weight: bold;
 }
@@ -245,7 +245,7 @@ h2{
 }
 
     h2{
-        font-size: 25px !important;
+        font-size: 28px !important;
     }
 
     .user {
@@ -265,7 +265,7 @@ h2{
     height: 40px;
     border: 1px solid lightgray;
     padding: 0 !important;
-    font-size: 20px;
+    font-size: 32px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -290,7 +290,7 @@ h2{
     justify-content: center !important;
     align-items: center;
     vertical-align: middle !important;
-    font-size: 26px;
+    font-size: 32px;
     color: black;
     font-weight: bold;
 } 
