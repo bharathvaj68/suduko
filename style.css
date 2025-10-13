@@ -164,7 +164,7 @@ h2{
     height: 37.5px;
     border: 1px solid lightgray;
     padding: 0 !important;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -173,7 +173,7 @@ h2{
 }
 
     .suduko-text {
-        padding: 10px 10px;
+        padding: 10px 0px 10px 10px;
     }
 
             
@@ -194,7 +194,7 @@ h2{
     justify-content: center !important;
     align-items: center;
     vertical-align: middle !important;
-    font-size: 28px;
+    font-size: 24px;
     color: black;
     font-weight: bold;
 }
@@ -246,6 +246,7 @@ h2{
 
     h2{
         font-size: 28px !important;
+        padding: 2px 0px;
     }
 
     .user {
@@ -265,7 +266,7 @@ h2{
     height: 40px;
     border: 1px solid lightgray;
     padding: 0 !important;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -290,7 +291,7 @@ h2{
     justify-content: center !important;
     align-items: center;
     vertical-align: middle !important;
-    font-size: 32px;
+    font-size: 26px;
     color: black;
     font-weight: bold;
 } 
