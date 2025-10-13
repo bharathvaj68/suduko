@@ -39,6 +39,7 @@ h2{
 .diff {
     color: #333;
     padding: 10px 20px ;
+    position: relative;
 }
 
 .submit {
@@ -63,26 +64,87 @@ h2{
     width: 450px;
 
     background-color: aqua;
+    margin: 0 auto;
+    flex-wrap: wrap !important;
 }
 
+.tile {
+    width: 50px;
+    height: 50px;
+    border: 1px solid lightgray;
+    padding: 0 !important;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
 
 #digits {
     width: 450px;
-    height: 45px;
+    height: 50px;
     background-color: aquamarine;
+    vertical-align: middle !important;
+    padding: 0 0 !important;
+    margin: auto;
 }
 
-#diff:hover {
+
+.number {
+    width: 48px;
+    height: 48px;
+    border: 1px solid black;
+    margin: 2px ;
+    justify-content: center !important;
+    align-items: center;
+    vertical-align: middle !important;
+    font-size: 28px;
+    color: black;
+    font-weight: bold;
+}
+
+.diff-btn {
+    padding: 0.5rem 3rem !important;
+}
+
+.diff-btn:hover {
     background-color: var(--tertiary) !important;
     border: var(--fourth) !important;
 }
 
-.diff-list {
-    display: none;
+.btn:focus {
+    box-shadow: none !important;
 }
 
-.diff-list .show:active {
-    display: block;
+.diff-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 5px 0;
+  list-style: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.diff-list li a {
+  display: block;
+  padding: 0.5rem 2.5rem ;
+  text-decoration: none;
+  color: #333;
+}
+
+.diff-list li a:hover {
+  background: #f0f0f0;
+  padding: 0.5rem 2.5rem ;
+}
+
+.diff-list-show {
+  display: block;
 }
 
 #submit:hover {
@@ -91,30 +153,96 @@ h2{
 }
 
 @media (max-width: 425px) {
+    
     #suduko {
         height: 300px;
         width: 300px;
     }
 
+    .tile {
+    width: 33.3px;
+    height: 33.3px;
+    border: 1px solid lightgray;
+    padding: 0 !important;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
     .suduko-text {
         padding: 10px 10px;
     }
 
-    #digits {
-        width: 300px;
-    }
+            
+#digits {
+    width: 300px;
+    height: 33.3px;
+    background-color: aquamarine;
+    vertical-align: middle !important;
+    padding: 0 0 !important;
+}
 
+
+.number {
+    width: 33.3px;
+    height: 33.3px;
+    border: 1px solid black;
+    margin: 1px ;
+    justify-content: center !important;
+    align-items: center;
+    vertical-align: middle !important;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
     .btn {
         padding: 5px 10px !important;
     }
 
     .diff {
-        padding: 10px;
+        padding: 10px 0px !important;
     }
 
-    #diff {
+    .diff-btn {
         padding: 0.5rem 1rem !important;
     }
+
+    
+
+.diff-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.1rem 0.5rem ;
+  margin: 5px 0;
+  list-style: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.diff-list li a {
+  display: block;
+  padding: 0.1rem 0.5rem ;
+  text-decoration: none;
+  color: #333;
+}
+
+.diff-list li a:hover {
+  background: #f0f0f0;
+  padding: 0.1rem 0.5rem ;
+  
+}
+
+.diff-list-show {
+  display: block;
+}
 
     h2{
         font-size: 1 rem !important;
@@ -123,6 +251,7 @@ h2{
     .user {
         width: 50px;
     }
+
 }
 
 @media (min-width:425px) and (max-width: 480px) {
@@ -131,9 +260,40 @@ h2{
         height: 360px;
     }
 
-    #digits {
-        width: 360px;
-    }
+    .tile {
+    width: 40px;
+    height: 40px;
+    border: 1px solid lightgray;
+    padding: 0 !important;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+   #digits {
+    width: 360px;
+    height: 42px;
+    background-color: aquamarine;
+    vertical-align: middle !important;
+    padding: 0 0 !important;
+}
+
+
+.number {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    margin: 1.5px ;
+    justify-content: center !important;
+    align-items: center;
+    vertical-align: middle !important;
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+} 
 
     .btn {
         padding: 3px 2px !important;
@@ -143,9 +303,41 @@ h2{
         padding: 10px;
     }
 
-    #diff {
+    .diff-btn {
         padding: 0.5rem 2rem !important;
     }
+
+    
+
+.diff-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  margin: 5px 0;
+  list-style: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.diff-list li a {
+  display: block;
+  /* padding: 0.5rem 1.5rem ; */
+  text-decoration: none;
+  color: #333;
+}
+
+.diff-list li a:hover {
+  background: #f0f0f0;
+}
+
+.diff-list-show {
+  display: block;
+}
 
     h2{
         font-size: 25px !important;
