@@ -155,13 +155,13 @@ h2{
 @media (max-width: 425px) {
     
     #suduko {
-        height: 315px;
-        width: 315px;
+        height: 337.5px;
+        width: 337.5px;
     }
 
     .tile {
-    width: 35px;
-    height: 35px;
+    width: 37.5px;
+    height: 37.5px;
     border: 1px solid lightgray;
     padding: 0 !important;
     font-size: 20px;
@@ -178,8 +178,8 @@ h2{
 
             
 #digits {
-    width: 315px;
-    height: 35px;
+    width: 337.5px;
+    height: 37.5px;
     background-color: aquamarine;
     vertical-align: middle !important;
     padding: 0 0 !important;
@@ -187,8 +187,8 @@ h2{
 
 
 .number {
-    width: 35px;
-    height: 35px;
+    width: 37.5px;
+    height: 37.5px;
     border: 1px solid black;
     margin: 1px ;
     justify-content: center !important;
@@ -245,7 +245,7 @@ h2{
 }
 
     h2{
-        font-size: 1 rem !important;
+        font-size: 25px !important;
     }
 
     .user {
