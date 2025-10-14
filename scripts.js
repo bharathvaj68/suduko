@@ -55,6 +55,9 @@ var solution = [
   "812945763"
 ];
 
+var boardArray = board.map(row => row.split(''));
+var solutionArray = solution.map(row => row.split(''));
+
 window.onload = function() {
   setGame();
 }
@@ -77,7 +80,10 @@ function setGame() {
       if(board[r][c] != "-"){
         tile.innerText= board[r][c];
       }
-      tile.addEventListener("click", selectTile());
+      if(board[r][c] == "-"){
+        tile.classList.add("input")
+      }
+      tile.addEventListener("click", selectTile);
       tile.classList.add("tile");
       document.getElementById("suduko").append(tile);
     }
@@ -95,5 +101,14 @@ function selectNumber () {
 }
 
 function selectTile () {
-
+  if(numSelected){
+    for(let r=0; r<9; r++){
+      for(let c=0; c<9; c++){
+          if (boardArray[r][c] == "-"){
+  this.innerText = numSelected.id;
+  }
+      }
+    }
+  
+}
 }
