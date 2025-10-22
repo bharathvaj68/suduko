@@ -23,6 +23,7 @@ hard.addEventListener("click", () => {
 
 let submit = document.getElementById("submit");
 submit.addEventListener("click", () => {
+    checkColor();
     submit.classList("color")
     console.log("clicked");
 });
@@ -56,6 +57,7 @@ var solution = [
 ];
 
 var boardArray = board.map(row => row.split(''));
+var userBoardArray = board.map(row => row.split(''));
 var solutionArray = solution.map(row => row.split(''));
 
 window.onload = function() {
@@ -76,7 +78,7 @@ function setGame() {
   for(let r = 0; r<9; r++){
     for(let c = 0; c<9; c++){
       let tile = document.createElement("div");
-      tile.id = r.toString + "-" + c.toString;
+      tile.id = r + "-" + c;
       if(board[r][c] != "-"){
         tile.innerText= board[r][c];
       }
@@ -100,15 +102,18 @@ function selectNumber () {
 
 }
 
-function selectTile () {
-  if(numSelected){
-    for(let r=0; r<9; r++){
-      for(let c=0; c<9; c++){
-          if (boardArray[r][c] == "-"){
-  this.innerText = numSelected.id;
-  }
-      }
-    }
+function selectTile() {
+  if (!numSelected) return;
+
+  let [r, c] = this.id.split("-").map(Number);
+
   
+  if (boardArray[r][c] === "-") {
+    this.innerText = numSelected.id;
+    userBoardArray[r][c] = numSelected.id;
+  }
 }
+
+function checkColor() {
+  
 }
