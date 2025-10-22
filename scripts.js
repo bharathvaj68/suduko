@@ -21,12 +21,6 @@ hard.addEventListener("click", () => {
   diffbtn.textContent = "Hard";
 })
 
-let submit = document.getElementById("submit");
-submit.addEventListener("click", () => {
-    checkColor();
-    submit.classList("color")
-    console.log("clicked");
-});
 
 let numSelected = null;
 let tileSelected = null;
@@ -35,10 +29,10 @@ let tileSelected = null;
 var board = [
   "--74916-5",
   "2---6-3-9",
-  "----7-1--",
+  "-----7-1-",
   "-586----4",
-  "--3---9--",
-  "--62-187-",
+  "--3----9-",
+  "--62--187",
   "9-4-7---2",
   "67-83----",
   "81--45---"
@@ -77,7 +71,7 @@ function setGame() {
   //Board
   for(let r = 0; r<9; r++){
     for(let c = 0; c<9; c++){
-      let tile = document.createElement("div");
+      tile= document.createElement("div");
       tile.id = r + "-" + c;
       if(board[r][c] != "-"){
         tile.innerText= board[r][c];
@@ -85,9 +79,19 @@ function setGame() {
       if(board[r][c] == "-"){
         tile.classList.add("input")
       }
+
+      if(r==2 || r==5){
+      tile.classList.add("down-border");
+      }
+
+     if(c==2 || c==5) {
+         tile.classList.add("right-border")
+     }
       tile.addEventListener("click", selectTile);
       tile.classList.add("tile");
       document.getElementById("suduko").append(tile);
+
+      
     }
   }
 }
@@ -112,8 +116,31 @@ function selectTile() {
     this.innerText = numSelected.id;
     userBoardArray[r][c] = numSelected.id;
   }
+
 }
 
 function checkColor() {
-  
+  console.log("dfhl");
+  for(let r=0; r<9; r++){
+    for(let c=0; c<9; c++){
+      if(boardArray[r][c] === "-"){
+      let tile = document.getElementById(r + "-" + c);
+      tile.classList.remove("correct","wrong");
+      if(userBoardArray[r][c] === "-") continue;
+      
+      if (userBoardArray[r][c] === solutionArray[r][c]) {
+        tile.classList.add("correct");
+      }
+      else {
+        tile.classList.add("wrong");
+      }
+    }
+  }
 }
+}
+
+let submit = document.getElementById("submit");
+submit.addEventListener("click", () => {
+    checkColor();
+    console.log("clicked");
+});
