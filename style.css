@@ -185,6 +185,10 @@ h2{
   display: block;
 }
 
+.diff-list-hide {
+    display: hidden;
+}
+
 #submit:hover {
     background-color: var(--tertiary) !important;
     border: var(--fourth) !important;
