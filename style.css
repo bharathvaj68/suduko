@@ -52,6 +52,12 @@ h2{
     position: sticky;
 }
 
+.leaderboard{
+    margin: 5px 5px 5px auto;
+    width: 48px;
+    position: sticky;
+}
+
 .btn {
     background-color: var(--secondary) !important;
     color: #FFFFFF;
@@ -218,6 +224,9 @@ h2{
         padding: 10px 0px 10px 10px;
     }
 
+    .leaderboard{
+        margin: 5px 0px 5px 0px;
+    }
             
 #digits {
     width: 337.5px;
@@ -291,10 +300,6 @@ h2{
         padding: 2px 0px;
     }
 
-    .user {
-        width: 50px;
-    }
-
 }
 
 @media (min-width:425px) and (max-width: 480px) {
@@ -350,7 +355,9 @@ h2{
         padding: 0.5rem 2rem !important;
     }
 
-    
+    .leaderboard{
+        margin: 5px 0px 5px auto;
+    }
 
 .diff-list {
   display: none;
@@ -386,8 +393,7 @@ h2{
         font-size: 25px !important;
     }
 
-    .user {
-        width: 50px;
-        margin: 7px;
+    .leaderboard{
+        margin: 5px 0px 5px auto;
     }
 }
