@@ -1,164 +1,160 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 :root {
-
-    --primary: #e8e7e7 !important;
-    --secondary: #818181 !important;
-    --tertiary: #B9B9B9 !important;
-    --fourth: #413F3F !important;  
+  --primary: #e8e7e7 !important;
+  --secondary: #818181 !important;
+  --tertiary: #b9b9b9 !important;
+  --fourth: #413f3f !important;
 }
 
 .container-fluid {
-    width: 90% !important;
+  width: 90% !important;
 }
 
 header {
-    border: 100% solid var(--primary);
-    border-radius: 10px;
-    background-color: #e8e7e7;
+  border: 100% solid var(--primary);
+  border-radius: 10px;
+  background-color: #e8e7e7;
 }
 
-h2{
-    margin-bottom: 0 !important;
-    font-size: 1.5rem !important;
-    line-height: normal !important;
-    font-weight: bold !important;
+h2 {
+  margin-bottom: 0 !important;
+  font-size: 1.5rem !important;
+  line-height: normal !important;
+  font-weight: bold !important;
 }
 
 .suduko-text {
-    color: #333;
-    padding: 10px 20px;
+  color: #333;
+  padding: 10px 20px;
 }
 
 .diff {
-    color: #333;
-    padding: 10px 20px ;
-    position: relative;
+  color: #333;
+  padding: 10px 20px;
+  position: relative;
 }
 
 .submit {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
-.user{
-    margin: 5px auto;
-    width: 50px;
-    position: sticky;
+.user {
+  margin: 5px auto;
+  width: 50px;
+  position: sticky;
 }
 
-.leaderboard{
-    margin: 5px 5px 5px auto;
-    width: 48px;
-    position: sticky;
+.leaderboard {
+  margin: 5px 5px 5px auto;
+  width: 48px;
+  position: sticky;
+  cursor: pointer;
 }
 
 .btn {
-    background-color: var(--secondary) !important;
-    color: #FFFFFF;
-    border: 0%;
+  background-color: var(--secondary) !important;
+  color: #ffffff;
+  border: 0%;
 }
 
-
 #suduko {
-    height: 450px;
-    width: 450px;
+  height: 450px;
+  width: 450px;
 
-    background-color: var(--tertiary);
-    margin: 0 auto;
-    flex-wrap: wrap !important;
+  background-color: var(--tertiary);
+  margin: 0 auto;
+  flex-wrap: wrap !important;
 }
 
 .tile {
-    width: 50px;
-    height: 50px;
-    border: 1px solid lightgray;
-    padding: 0 !important;
-    font-size: 28px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid lightgray;
+  padding: 0 !important;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 .down-border {
-    border-bottom: 2px solid black !important;
+  border-bottom: 2px solid black !important;
 }
 
 .right-border {
-    border-right: 2px solid black !important;
+  border-right: 2px solid black !important;
 }
 
 .input {
-    width: 50px;
-    height: 50px;
-    border: 1px solid lightgray;
-    background-color: var(--primary);
-    padding: 0 !important;
-    font-size: 28px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid lightgray;
+  background-color: var(--primary);
+  padding: 0 !important;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 .correct {
-    background-color: greenyellow;
-    border: 1px solid rgb(40, 198, 0);
+  background-color: greenyellow;
+  border: 1px solid rgb(40, 198, 0);
 }
 
 .wrong {
-    background-color: red;
-    border: 1px solid rgb(255, 107, 107);
+  background-color: red;
+  border: 1px solid rgb(255, 107, 107);
 }
 
 #digits {
-    width: 450px;
-    height: 50px;
-    
-    vertical-align: middle !important;
-    padding: 0 0 !important;
-    margin: auto;
-}
+  width: 450px;
+  height: 50px;
 
+  vertical-align: middle !important;
+  padding: 0 0 !important;
+  margin: auto;
+}
 
 .number {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 
-    border: 2px solid black;
-    margin: 2.5px ;
-    justify-content: center !important;
-    align-items: center;
-    vertical-align: middle !important;
-    font-size: 28px;
-    color: black;
-    font-weight: bold;
+  border: 2px solid black;
+  margin: 2.5px;
+  justify-content: center !important;
+  align-items: center;
+  vertical-align: middle !important;
+  font-size: 28px;
+  color: black;
+  font-weight: bold;
 }
 
-
 .number-selected {
-    background-color: #D9D9D9; 
+  background-color: #d9d9d9;
 }
 
 .diff-btn {
-    padding: 0.5rem 3rem !important;
+  padding: 0.5rem 3rem !important;
 }
 
 .diff-btn:hover {
-    background-color: var(--tertiary) !important;
-    border: var(--fourth) !important;
+  background-color: var(--tertiary) !important;
+  border: var(--fourth) !important;
 }
 
 .btn:focus {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .diff-list {
@@ -172,19 +168,19 @@ h2{
   border-radius: 6px;
   margin: 5px 0;
   list-style: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .diff-list li a {
   display: block;
-  padding: 0.5rem 2.5rem ;
+  padding: 0.5rem 2.5rem;
   text-decoration: none;
   color: #333;
 }
 
 .diff-list li a:hover {
   background: #f0f0f0;
-  padding: 0.5rem 2.5rem ;
+  padding: 0.5rem 2.5rem;
 }
 
 .diff-list-show {
@@ -192,22 +188,59 @@ h2{
 }
 
 .diff-list-hide {
-    display: hidden;
+  display: hidden;
 }
 
 #submit:hover {
-    background-color: var(--tertiary) !important;
-    border: var(--fourth) !important;
+  background-color: var(--tertiary) !important;
+  border: var(--fourth) !important;
 }
 
-@media (max-width: 425px) {
-    
-    #suduko {
-        height: 337.5px;
-        width: 337.5px;
-    }
+.overlay {
+  display: none;
+  background-color: #413f3f;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
 
-    .tile {
+.overlay-show {
+  display: block;
+}
+
+.scoreboard {
+  display: none;
+  /* width: 300px;
+  height: 200px;
+  line-height: 200px; */
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  margin-top: -10px;
+  margin-left: -15px;
+  background-color: var(--tertiary);
+  border-radius: 5px;
+  text-align: center;
+  z-index: 11;
+}
+
+.scoreboard-show{
+  display: block;
+}
+
+  
+
+@media (max-width: 425px) {
+  #suduko {
+    height: 337.5px;
+    width: 337.5px;
+  }
+
+  .tile {
     width: 37.5px;
     height: 37.5px;
     border: 1px solid lightgray;
@@ -218,97 +251,92 @@ h2{
     justify-content: center;
     align-items: center;
     padding: 0;
-}
+  }
 
-    .suduko-text {
-        padding: 10px 0px 10px 10px;
-    }
+  .suduko-text {
+    padding: 10px 0px 10px 10px;
+  }
 
-    .leaderboard{
-        margin: 5px 0px 5px 0px;
-    }
-            
-#digits {
+  .leaderboard {
+    margin: 5px 0px 5px 0px;
+  }
+
+  #digits {
     width: 337.5px;
     height: 37.5px;
 
     vertical-align: middle !important;
     padding: 0 0 !important;
-}
+  }
 
-
-.number {
+  .number {
     width: 37.5px;
     height: 37.5px;
     border: 2px solid black;
-    margin: 1.5px ;
+    margin: 1.5px;
     justify-content: center !important;
     align-items: center;
     vertical-align: middle !important;
     font-size: 24px;
     color: black;
     font-weight: bold;
-}
-    .btn {
-        padding: 5px 10px !important;
-    }
+  }
+  .btn {
+    padding: 5px 10px !important;
+  }
 
-    .diff {
-        padding: 10px 0px !important;
-    }
+  .diff {
+    padding: 10px 0px !important;
+  }
 
-    .diff-btn {
-        padding: 0.5rem 1rem !important;
-    }
+  .diff-btn {
+    padding: 0.5rem 1rem !important;
+  }
 
-    
+  .diff-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.1rem 0.5rem;
+    margin: 5px 0;
+    list-style: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
 
-.diff-list {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 0.1rem 0.5rem ;
-  margin: 5px 0;
-  list-style: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
+  .diff-list li a {
+    display: block;
+    padding: 0.1rem 0.5rem;
+    text-decoration: none;
+    color: #333;
+  }
 
-.diff-list li a {
-  display: block;
-  padding: 0.1rem 0.5rem ;
-  text-decoration: none;
-  color: #333;
-}
+  .diff-list li a:hover {
+    background: #f0f0f0;
+    padding: 0.1rem 0.5rem;
+  }
 
-.diff-list li a:hover {
-  background: #f0f0f0;
-  padding: 0.1rem 0.5rem ;
-  
-}
+  .diff-list-show {
+    display: block;
+  }
 
-.diff-list-show {
-  display: block;
-}
-
-    h2{
-        font-size: 28px !important;
-        padding: 2px 0px;
-    }
-
+  h2 {
+    font-size: 28px !important;
+    padding: 2px 0px;
+  }
 }
 
-@media (min-width:425px) and (max-width: 480px) {
-    #suduko {
-        width: 360px;
-        height: 360px;
-    }
+@media (min-width: 425px) and (max-width: 480px) {
+  #suduko {
+    width: 360px;
+    height: 360px;
+  }
 
-    .tile {
+  .tile {
     width: 40px;
     height: 40px;
     border: 1px solid lightgray;
@@ -319,81 +347,80 @@ h2{
     justify-content: center;
     align-items: center;
     padding: 0;
-}
+  }
 
-   #digits {
+  #digits {
     width: 360px;
     height: 42px;
 
     vertical-align: middle !important;
     padding: 0 0 !important;
-}
+  }
 
-
-.number {
+  .number {
     width: 40px;
     height: 40px;
     border: 2px solid black;
-    margin: 2px ;
+    margin: 2px;
     justify-content: center !important;
     align-items: center;
     vertical-align: middle !important;
     font-size: 26px;
     color: black;
     font-weight: bold;
-} 
+  }
 
-    .btn {
-        padding: 3px 2px !important;
-    }
-    
-    .diff {
-        padding: 10px;
-    }
+  .btn {
+    padding: 3px 2px !important;
+  }
 
-    .diff-btn {
-        padding: 0.5rem 2rem !important;
-    }
+  .diff {
+    padding: 10px;
+  }
 
-    .leaderboard{
-        margin: 5px 0px 5px auto;
-    }
+  .diff-btn {
+    padding: 0.5rem 2rem !important;
+  }
 
-.diff-list {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  .leaderboard {
+    margin: 5px 0px 5px auto;
+  }
 
-  margin: 5px 0;
-  list-style: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
+  .diff-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 
-.diff-list li a {
-  display: block;
-  /* padding: 0.5rem 1.5rem ; */
-  text-decoration: none;
-  color: #333;
-}
+    margin: 5px 0;
+    list-style: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
 
-.diff-list li a:hover {
-  background: #f0f0f0;
-}
+  .diff-list li a {
+    display: block;
+    /* padding: 0.5rem 1.5rem ; */
+    text-decoration: none;
+    color: #333;
+  }
 
-.diff-list-show {
-  display: block;
-}
+  .diff-list li a:hover {
+    background: #f0f0f0;
+  }
 
-    h2{
-        font-size: 25px !important;
-    }
+  .diff-list-show {
+    display: block;
+  }
 
-    .leaderboard{
-        margin: 5px 0px 5px auto;
-    }
+  h2 {
+    font-size: 25px !important;
+  }
+
+  .leaderboard {
+    margin: 5px 0px 5px auto;
+  }
 }

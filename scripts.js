@@ -13,6 +13,33 @@ let tileSelected = null;
 
 let emptyCells = 0;
 
+//Leaderboard Logic
+let leaderboard = document.getElementById("leaderboard");
+let overlay = document.getElementById("overlay");
+let scoreboard = document.getElementById("scoreboard");
+let closeButton = document.getElementById("close");
+
+leaderboard.addEventListener("click", ()=> {
+  overlay.classList.add("overlay-show");
+  scoreboard.classList.add("scoreboard-show");
+  console.log("clicked");
+});
+
+closeButton.addEventListener("click", () => {
+  overlay.classList.remove("overlay-show");
+  scoreboard.classList.remove("scoreboard-show");
+  overlay.classList.add("overlay");
+  scoreboard.classList.add("scoreboard");
+});
+
+overlay.addEventListener("click", () => {
+  overlay.classList.remove("overlay-show");
+  scoreboard.classList.remove("scoreboard-show");
+  overlay.classList.add("overlay");
+  scoreboard.classList.add("scoreboard");
+})
+
+
 // Difficulty Buttons Logic
 let diffbtn = document.getElementById("diff-btn");
 let difflist = document.getElementById("diff-list");
@@ -68,7 +95,7 @@ function setDiff(diff = 0) {
       "--62--187",
       "9-4-7---2",
       "67-83----",
-      "81--45---"
+      "81--45---",
     ];
 
     solution = [
@@ -80,11 +107,9 @@ function setDiff(diff = 0) {
       "496253187",
       "934176852",
       "675832941",
-      "812945763"
+      "812945763",
     ];
-  }
-
-  else if (diff === 1) {
+  } else if (diff === 1) {
     board = [
       "5-3--7---",
       "6--195---",
@@ -94,7 +119,7 @@ function setDiff(diff = 0) {
       "7---2---6",
       "-6----28-",
       "---419--5",
-      "---8--79-"
+      "---8--79-",
     ];
 
     solution = [
@@ -106,11 +131,9 @@ function setDiff(diff = 0) {
       "713942856",
       "961537284",
       "287419635",
-      "354286719"
+      "354286719",
     ];
-  }
-
-  else if (diff === 2) {
+  } else if (diff === 2) {
     board = [
       "1--9-----",
       "--3---2--",
@@ -120,7 +143,7 @@ function setDiff(diff = 0) {
       "----2----",
       "-4--6--9-",
       "--9---5--",
-      "-----8--7"
+      "-----8--7",
     ];
 
     solution = [
@@ -132,13 +155,13 @@ function setDiff(diff = 0) {
       "748235916",
       "547326189",
       "629197854",
-      "381458627"
+      "381458627",
     ];
   }
 
-  boardArray = board.map(r => r.split(''));
-  userBoardArray = board.map(r => r.split(''));
-  solutionArray = solution.map(r => r.split(''));
+  boardArray = board.map((r) => r.split(""));
+  userBoardArray = board.map((r) => r.split(""));
+  solutionArray = solution.map((r) => r.split(""));
 }
 
 // Game Set
@@ -184,7 +207,6 @@ function resetBoard() {
   emptyCells = 0;
 }
 
-
 // Selection & Checking Logic
 
 function selectNumber() {
@@ -209,8 +231,8 @@ function checkColor() {
       if (boardArray[r][c] === "-") {
         let tile = document.getElementById(r + "-" + c);
         tile.classList.remove("correct", "wrong");
-        if (userBoardArray[r][c] === "-"){ 
-          unusedCells++; 
+        if (userBoardArray[r][c] === "-") {
+          unusedCells++;
           continue;
         }
         if (userBoardArray[r][c] === solutionArray[r][c]) {
@@ -227,13 +249,13 @@ function checkColor() {
       if (boardArray[r][c] === "-") {
         let tile = document.getElementById(r + "-" + c);
         tile.classList.remove("correct", "wrong");
-        if(unusedCells === 0){
-        if (userBoardArray[r][c] === solutionArray[r][c]) {
-          tile.classList.add("correct");
-        } else {
-          tile.classList.add("wrong");
+        if (unusedCells === 0) {
+          if (userBoardArray[r][c] === solutionArray[r][c]) {
+            tile.classList.add("correct");
+          } else {
+            tile.classList.add("wrong");
+          }
         }
-      }
       }
     }
   }
@@ -243,11 +265,9 @@ function checkColor() {
 let submit = document.getElementById("submit");
 submit.addEventListener("click", checkColor);
 
-
-
 // Initial Game Start
 
-window.onload = function() {
+window.onload = function () {
   setDiff(0);
-  setGame();   // Builds game
+  setGame(); // Builds game
 };
