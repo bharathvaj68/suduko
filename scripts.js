@@ -432,7 +432,7 @@ function checkColor() {
   if (auth.currentUser) {
     saveScore(score);
   } else {
-    console.log(" Score not saved — user not logged in.");
+    alert(" Score not saved — user not logged in.");
   }
 
   // Step 6: Reset board after short delay
