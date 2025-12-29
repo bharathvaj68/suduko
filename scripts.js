@@ -86,7 +86,6 @@ signupBtn.addEventListener("click", () => {
     .then((userCredential) => {
       const user = userCredential.user;
 
-      // ✅ Save the user's name in Firestore
       db.collection("users").doc(user.uid).set({
         name: name,
         email: email,
@@ -119,13 +118,12 @@ loginBtn.addEventListener("click", () => {
     .then((userCredential) => {
       const user = userCredential.user;
 
-      // ✅ Ensure Firestore profile exists
       const userDoc = db.collection("users").doc(user.uid);
       userDoc.get().then((doc) => {
         if (!doc.exists) {
-          // Create a new profile for old users who never had one
+          
           userDoc.set({
-            name: "Player",
+            name: user.name,
             email: user.email,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           })
@@ -164,9 +162,8 @@ toggleEye.addEventListener("click", () => {
   }
 });
 
-/****************************
- *  DIFFICULTY BUTTON LOGIC  *
- ****************************/
+
+/* DIFFICULTY BUTTON LOGIC */
 const diffbtn = document.getElementById("diff-btn");
 const difflist = document.getElementById("diff-list");
 const easy = document.getElementById("easy");
@@ -188,9 +185,29 @@ diffbtn.addEventListener("click", () => {
   });
 });
 
-/****************************
- *  SET GAME DIFFICULTY      *
- ****************************/
+/* SET GAME DIFFICULTY */
+
+// Rotate a 9x9 matrix 90° clockwise N times
+function rotateMatrix(matrix, times = 1) {
+  for (let t = 0; t < times; t++) {
+    matrix = matrix[0].split('').map((_, colIndex) =>
+      matrix.map(row => row[colIndex]).reverse().join('')
+    );
+  }
+  return matrix;
+}
+
+// Flip a 9x9 matrix horizontally or vertically
+function flipMatrix(matrix, direction = "horizontal") {
+  if (direction === "horizontal") {
+    return matrix.map(row => row.split('').reverse().join(''));
+  } else if (direction === "vertical") {
+    return [...matrix].reverse();
+  }
+  return matrix;
+}
+
+// Set board and solution with random transformations
 function setDiff(diff = 0) {
   const puzzles = [
     {
@@ -267,17 +284,36 @@ function setDiff(diff = 0) {
     },
   ];
 
+  // Select base puzzle by difficulty
   const selected = puzzles[diff];
-  board = selected.board;
-  solution = selected.solution;
-  boardArray = board.map((r) => r.split(""));
-  userBoardArray = board.map((r) => r.split(""));
-  solutionArray = solution.map((r) => r.split(""));
+
+  // Rotation
+  const rotations = Math.floor(Math.random() * 4);
+  let randomizedBoard = rotateMatrix(selected.board, rotations);
+  let randomizedSolution = rotateMatrix(selected.solution, rotations);
+
+  // Flip Horizontally and Vertically
+  if (Math.random() < 0.5) {
+    randomizedBoard = flipMatrix(randomizedBoard, "horizontal");
+    randomizedSolution = flipMatrix(randomizedSolution, "horizontal");
+  }
+
+  if (Math.random() < 0.5) {
+    randomizedBoard = flipMatrix(randomizedBoard, "vertical");
+    randomizedSolution = flipMatrix(randomizedSolution, "vertical");
+  }
+
+  // Apply final randomized setup
+  board = randomizedBoard;
+  solution = randomizedSolution;
+  boardArray = board.map(r => r.split(""));
+  userBoardArray = board.map(r => r.split(""));
+  solutionArray = solution.map(r => r.split(""));
+
 }
 
-/****************************
- *  GAME SETUP AND LOGIC     *
- ****************************/
+
+/* GAME SETUP AND LOGIC */
 function setGame() {
   const digits = document.getElementById("digits");
   const sudokuGrid = document.getElementById("suduko");
@@ -334,9 +370,7 @@ function selectTile() {
   }
 }
 
-/****************************
- *  SCORE CALCULATION LOGIC  *
- ****************************/
+/* SCORE CALCULATION LOGIC */
 function checkColor() {
   let unusedCells = 0;
   let correctCount = 0;
@@ -373,8 +407,6 @@ function checkColor() {
   // Step 4: Alert and save score only if all filled
   if (correctCount === emptyCells) {
     alert("You have completed the Sudoku perfectly!");
-  } else {
-    alert(` You completed the Sudoku! Your score: ${score}`);
   }
 
   // Step 5: Save only if logged in
@@ -394,13 +426,11 @@ function checkColor() {
 
 document.getElementById("submit").addEventListener("click", checkColor);
 
-/****************************
- *  SAVE AND LOAD SCORES     *
- ****************************/
+/* SAVE AND LOAD SCORES */
 function saveScore(score) {
   const user = auth.currentUser;
   if (!user) {
-    console.log("Skipping score save — no user logged in.");
+    alert("Skipping score save — no user logged in.");
     return;
   }
 
@@ -450,9 +480,7 @@ function loadLeaderboard() {
     });
 }
 
-/****************************
- *  INITIAL LOAD             *
- ****************************/
+/* INITIAL LOAD */
 window.onload = function () {
   setDiff(0);
   setGame();
