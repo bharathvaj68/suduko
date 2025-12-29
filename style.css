@@ -204,7 +204,7 @@ h2 {
 .overlay {
   display: none;
   background-color: #413f3f;
-  opacity: 0.7;
+  opacity: 0.95;
   position: absolute;
   top: 0;
   left: 0;
@@ -253,7 +253,7 @@ h2 {
 .overlay2 {
   display: none;
   background-color: #413f3f;
-  opacity: 0.7;
+  opacity: 0.95;
   position: absolute;
   top: 0;
   left: 0;

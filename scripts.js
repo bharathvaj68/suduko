@@ -207,8 +207,6 @@ function rotateMatrix(matrix, times = 1) {
 function flipMatrix(matrix, direction = "horizontal") {
   if (direction === "horizontal") {
     return matrix.map(row => row.split('').reverse().join(''));
-  } else if (direction === "vertical") {
-    return [...matrix].reverse();
   }
   return matrix;
 }
@@ -302,11 +300,6 @@ function setDiff(diff = 0) {
   if (Math.random() < 0.5) {
     randomizedBoard = flipMatrix(randomizedBoard, "horizontal");
     randomizedSolution = flipMatrix(randomizedSolution, "horizontal");
-  }
-
-  if (Math.random() < 0.5) {
-    randomizedBoard = flipMatrix(randomizedBoard, "vertical");
-    randomizedSolution = flipMatrix(randomizedSolution, "vertical");
   }
 
   // Apply final randomized setup
