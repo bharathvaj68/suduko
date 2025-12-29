@@ -10,7 +10,15 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <!-- Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
+    <link rel="icon" type="image/svg" href="./image/suduko.svg"/>
     <title>Suduko</title>
   </head>
   <body>
@@ -27,10 +35,7 @@
         </div>
         <div class="mr-3">
           <img class="leaderboard" id="leaderboard" src="/image/leaderboard.svg" />
-          <img
-            class="user"
-            src="/image/user.svg"
-          />
+          <img class="user" id="user" src="/image/user.svg"/>
         </div>
       </div>
     </header>
@@ -49,15 +54,30 @@
           <div class="scoreboard-text"><h2>Scoreboard</h2></div>
           <div class="close" id="close"><img src="/image/close.svg"></div>
         </div>
-        <div class="scores d-flex flex-row justify-content-between">
-          <div class="user-name"></div>
-          <div class="score"></div>
+        <div class="scores">
         </div>
       </div>
     </div>
 
-    <div class="overlay">
-      <div class="user"></div>
+    <div class="overlay2" id="overlay2">
+        <div id="authcontainer" class="authcontainer container d-flex flex-column">
+          <div class="d-flex flex-row justify-content-between align-middle">
+            <div><h3 class="login">Login / Signup</h3></div>
+            <div class="close" id="close2"><img src="/image/close.svg"></div>
+          </div>
+          <div>
+          <input type="text" id="name" placeholder="Enter your Name" />
+          <input type="email" id="email" placeholder="Enter your Email">
+          <div class="password-box">
+            <input type="password" id="password" placeholder="Enter your Password">
+            <img src="/image/eye-close.svg" id="toggle-eye">
+          </div>
+          </div>
+          <div class="d-flex flex-row justify-content-center  ">
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Signup</button>
+          </div>
+        </div>
     </div>
 
     <script src="scripts.js"></script>

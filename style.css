@@ -48,6 +48,7 @@ h2 {
   margin: 5px auto;
   width: 50px;
   position: sticky;
+  cursor: pointer;
 }
 
 .leaderboard {
@@ -214,25 +215,123 @@ h2 {
 
 .scoreboard {
   display: none;
-  /* width: 300px;
-  height: 200px;
-  line-height: 200px; */
+  width: 750px !important;
+  max-width: 90%;
   position: fixed;
-  top: 10%;
-  left: 10%;
-  margin-top: -10px;
-  margin-left: -15px;
+  top: 20%; /* perfectly centered */
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--tertiary);
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: center;
   z-index: 11;
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
-.scoreboard-show{
+.scores {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.scores > div {
+  background-color: var(--primary);
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+.overlay2 {
+  display: none;
+  background-color: #413f3f;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.show {
   display: block;
 }
+.authcontainer {
+  display: none;
+  width: 750px !important;
+  max-width: 90%;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  border-radius: 8px;
+  text-align: center;
+  z-index: 11;
+  padding: 25px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
 
-  
+/* Auth form fields */
+#name,
+#email,
+.password-box {
+  width: 90%;
+  max-width: 600px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  margin: 8px auto;
+  padding: 8px 10px;
+  background-color: var(--fourth);
+}
+
+.password-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#password {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+}
+
+#toggle-eye {
+  width: 24px;
+  cursor: pointer;
+}
+
+/* Buttons */
+#login-btn,
+#signup-btn {
+  width: 140px;
+  padding: 8px 10px;
+  font-size: 16px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .scoreboard {
+    width: 90% !important;
+    padding: 15px;
+  }
+  .scores > div {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+}
 
 @media (max-width: 425px) {
   #suduko {
@@ -422,5 +521,16 @@ h2 {
 
   .leaderboard {
     margin: 5px 0px 5px auto;
+  }
+
+  .scoreboard {
+    width: 95% !important;
+    padding: 10px;
+  }
+  .scores > div {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
   }
 }
