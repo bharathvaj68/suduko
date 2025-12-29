@@ -269,7 +269,7 @@ h2 {
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--primary);
+  background-color: var(--tertiary);
   border-radius: 8px;
   text-align: center;
   z-index: 11;
@@ -288,13 +288,13 @@ h2 {
   border-radius: 6px;
   margin: 8px auto;
   padding: 8px 10px;
-  background-color: var(--fourth);
 }
 
 .password-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #f3f4f6;
 }
 
 #password {
