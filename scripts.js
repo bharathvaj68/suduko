@@ -203,13 +203,7 @@ function rotateMatrix(matrix, times = 1) {
   return matrix;
 }
 
-// Flip a 9x9 matrix horizontally or vertically
-function flipMatrix(matrix, direction = "horizontal") {
-  if (direction === "horizontal") {
-    return matrix.map(row => row.split('').reverse().join(''));
-  }
-  return matrix;
-}
+// xx
 
 // Set board and solution with random transformations
 function setDiff(diff = 0) {
@@ -296,11 +290,11 @@ function setDiff(diff = 0) {
   let randomizedBoard = rotateMatrix(selected.board, rotations);
   let randomizedSolution = rotateMatrix(selected.solution, rotations);
 
-  // Flip Horizontally and Vertically
-  if (Math.random() < 0.5) {
-    randomizedBoard = flipMatrix(randomizedBoard, "horizontal");
-    randomizedSolution = flipMatrix(randomizedSolution, "horizontal");
-  }
+  // // Flip Horizontally and Vertically
+  // if (Math.random() < 0.5) {
+  //   randomizedBoard = flipMatrix(randomizedBoard, "horizontal");
+  //   randomizedSolution = flipMatrix(randomizedSolution, "horizontal");
+  // }
 
   // Apply final randomized setup
   board = randomizedBoard;
