@@ -189,10 +189,16 @@ diffbtn.addEventListener("click", () => {
 
 // Rotate a 9x9 matrix 90° clockwise N times
 function rotateMatrix(matrix, times = 1) {
+  const newMatrix = [];
   for (let t = 0; t < times; t++) {
-    matrix = matrix[0].split('').map((_, colIndex) =>
-      matrix.map(row => row[colIndex]).reverse().join('')
-    );
+    for (let c = 0; c < matrix[0].length; c++) {
+      let newRow = "";
+      for (let r = matrix.length - 1; r >= 0; r--) {
+        newRow += matrix[r][c];
+      }
+      newMatrix.push(newRow);
+    }
+    matrix = newMatrix;
   }
   return matrix;
 }
