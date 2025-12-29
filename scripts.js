@@ -359,6 +359,25 @@ function selectNumber() {
   if (numSelected) numSelected.classList.remove("number-selected");
   numSelected = this;
   numSelected.classList.add("number-selected");
+
+  // Remove existing highlights
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const tile = document.getElementById(`${r}-${c}`);
+      tile.classList.remove("number-highlighted");
+    }
+  }
+
+  // Highlight tiles with the same number
+  const selectedValue = numSelected.innerText;
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const tile = document.getElementById(`${r}-${c}`);
+      if (tile.innerText === selectedValue) {
+        tile.classList.add("number-highlighted");
+      }
+    }
+  }
 }
 
 function selectTile() {
@@ -484,4 +503,6 @@ function loadLeaderboard() {
 window.onload = function () {
   setDiff(0);
   setGame();
+  overlay2.classList.add("show");
+  authContainer.classList.add("show");
 };
