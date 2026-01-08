@@ -322,6 +322,7 @@ function setDiff(diff = 0) {
   userBoardArray = board.map(r => r.split(""));
   solutionArray = solution.map(r => r.split(""));
 
+  
 }
 
 /* GAME SETUP AND LOGIC */
@@ -427,7 +428,15 @@ function checkColor() {
     return; 
   }
 
-  const score = Math.floor((correctCount / emptyCells) * 100);
+  let score = Math.floor((correctCount / emptyCells) * 100);
+
+  if(diff === 1) {
+    score +=25;
+  }
+
+  if(diff === 2) {
+    score +=50;
+  }
 
   if (correctCount === emptyCells) {
     alert("You have completed the Sudoku perfectly!");
