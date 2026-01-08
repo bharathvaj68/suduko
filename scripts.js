@@ -52,7 +52,7 @@ const signupBtn = document.getElementById("signup-btn");
 userIcon.addEventListener("click", () => {
   const currentUser = auth.currentUser;
   if (currentUser) {
-    // Logout
+    
     auth.signOut()
       .then(() => {
         console.log("User logged out");
@@ -60,7 +60,7 @@ userIcon.addEventListener("click", () => {
       })
       .catch((err) => console.error("Logout error:", err));
   } else {
-    // Show login/signup window
+    
     overlay2.classList.add("show");
     authContainer.classList.add("show");
   }
@@ -71,7 +71,7 @@ closeButton2.addEventListener("click", () => {
   authContainer.classList.remove("show");
 });
 
-// SIGNUP (with name)
+// SIGNUP 
 signupBtn.addEventListener("click", () => {
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
@@ -143,7 +143,6 @@ loginBtn.addEventListener("click", () => {
 });
 
 
-// AUTO ICON UPDATE
 auth.onAuthStateChanged((user) => {
   userIcon.src = user ? "image/logout.svg" : "image/user.svg";
 });
@@ -187,7 +186,7 @@ diffbtn.addEventListener("click", () => {
 
 /* SET GAME DIFFICULTY */
 
-// Rotate a 9x9 matrix 90° clockwise N times
+// Rotate a 9x9 matrix
 function rotateMatrix(matrix, times = 1) {
   const newMatrix = [];
   for (let t = 0; t < times; t++) {
@@ -203,7 +202,29 @@ function rotateMatrix(matrix, times = 1) {
   return matrix;
 }
 
-// xx
+// Flip a 9x9 matrix by swapping 3-row or 3-column blocks
+function flipMatrix(matrix, direction = "horizontal") {
+  const copy = matrix.map(r => r.split(''));
+
+  if (direction === "horizontal") {
+    
+    for (let r = 0; r < 9; r++) {
+      const left = copy[r].slice(0, 3);
+      const middle = copy[r].slice(3, 6);
+      const right = copy[r].slice(6, 9);
+      copy[r] = [...right, ...middle, ...left];
+    }
+  } else if (direction === "vertical") {
+    
+    const top = copy.slice(0, 3);
+    const middle = copy.slice(3, 6);
+    const bottom = copy.slice(6, 9);
+    return [...bottom, ...middle, ...top].map(r => r.join(''));
+  }
+
+  return copy.map(r => r.join(''));
+}
+
 
 // Set board and solution with random transformations
 function setDiff(diff = 0) {
@@ -282,7 +303,6 @@ function setDiff(diff = 0) {
     },
   ];
 
-  // Select base puzzle by difficulty
   const selected = puzzles[diff];
 
   // Rotation
@@ -290,13 +310,12 @@ function setDiff(diff = 0) {
   let randomizedBoard = rotateMatrix(selected.board, rotations);
   let randomizedSolution = rotateMatrix(selected.solution, rotations);
 
-  // // Flip Horizontally and Vertically
-  // if (Math.random() < 0.5) {
-  //   randomizedBoard = flipMatrix(randomizedBoard, "horizontal");
-  //   randomizedSolution = flipMatrix(randomizedSolution, "horizontal");
-  // }
+  // Flip
+  if (Math.random() < 0.5) {
+    randomizedBoard = flipMatrix(randomizedBoard, "horizontal");
+    randomizedSolution = flipMatrix(randomizedSolution, "horizontal");
+  }
 
-  // Apply final randomized setup
   board = randomizedBoard;
   solution = randomizedSolution;
   boardArray = board.map(r => r.split(""));
@@ -304,7 +323,6 @@ function setDiff(diff = 0) {
   solutionArray = solution.map(r => r.split(""));
 
 }
-
 
 /* GAME SETUP AND LOGIC */
 function setGame() {
@@ -353,7 +371,6 @@ function selectNumber() {
   numSelected = this;
   numSelected.classList.add("number-selected");
 
-  // Remove existing highlights
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
       const tile = document.getElementById(`${r}-${c}`);
@@ -361,7 +378,6 @@ function selectNumber() {
     }
   }
 
-  // Highlight tiles with the same number
   const selectedValue = numSelected.innerText;
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
@@ -387,7 +403,6 @@ function checkColor() {
   let unusedCells = 0;
   let correctCount = 0;
 
-  // Step 1: Count and mark each tile
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
       if (boardArray[r][c] === "-") {
@@ -406,29 +421,24 @@ function checkColor() {
     }
   }
 
-  // Step 2: Block submit if board not fully filled
   if (unusedCells > 0) {
     console.log(`You still have ${unusedCells} empty cells. Cannot submit yet.`);
     alert (`You still have ${unusedCells} empty cells. Cannot submit yet.`);
-    return; // Stop here
+    return; 
   }
 
-  // Step 3: If board is completely filled, calculate score
   const score = Math.floor((correctCount / emptyCells) * 100);
 
-  // Step 4: Alert and save score only if all filled
   if (correctCount === emptyCells) {
     alert("You have completed the Sudoku perfectly!");
   }
 
-  // Step 5: Save only if logged in
   if (auth.currentUser) {
     saveScore(score);
   } else {
     alert(" Score not saved — user not logged in.");
   }
 
-  // Step 6: Reset board after short delay
   setTimeout(() => {
     resetBoard();
     setDiff(diff);
